@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 // check if command line is well 
-if (process.argv.length < 4) {
+if (process.argv.length < 5) {
     console.log('usage node append.js [src_01] [src_02]... [dest]')
     process.exit(1)
 }
@@ -25,7 +25,7 @@ for (let i = 2; i < process.argv.length - 1; i++) {
         console.log(`${element} is not a directory`)
         process.exit(1) } */
     })
-    fs.appendFileSync('./'+process.argv[process.argv.length-1],' '+process.argv[i])
+    fs.appendFileSync(`${process.argv[process.argv.length-1]}`,`${fs.readFileSync(process.argv[i], 'utf-8')}`)
 }
 
 
